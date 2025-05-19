@@ -1,0 +1,268 @@
+.chatbotWindow {
+  width: 370px;
+  max-width: 95vw;
+  height: 520px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  backdrop-filter: blur(18px) saturate(180%);
+  animation: slideIn 0.3s cubic-bezier(0.4, 2, 0.6, 1);
+}
+
+.glassy {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+}
+
+.glassy-header {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.glassy-user {
+  background: rgba(79, 140, 255, 0.85);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.12);
+}
+
+.glassy-bot {
+  background: rgba(227, 230, 234, 0.7);
+  color: #22223b;
+  box-shadow: 0 2px 8px rgba(31, 38, 135, 0.09);
+}
+
+.glassy-input {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.chatbot-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(79, 140, 255, 0.85);
+  box-shadow: 0 4px 24px rgba(79, 140, 255, 0.18);
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  animation: chatbot-fab-pop 0.4s cubic-bezier(0.4, 2, 0.6, 1);
+}
+
+@keyframes chatbot-fab-pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.chatbot-fab-icon {
+  width: 28px;
+  height: 28px;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg"><path d="M2 21l21-9-21-9v7l15 2-15 2z"/></svg>')
+    center center no-repeat;
+  display: block;
+}
+
+.header {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.18rem;
+  color: #22223b;
+  letter-spacing: 0.5px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #6c757d;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messagesArea {
+  flex: 1;
+  padding: 22px 16px 12px 16px;
+  overflow-y: auto;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputArea {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border-top: 1px solid #e3e6ea;
+  gap: 10px;
+}
+
+.input {
+  flex: 1;
+  border-radius: 18px;
+  border: 1px solid #e3e6ea;
+  padding: 10px 16px;
+  font-size: 1rem;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.sendBtn {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+}
+
+.bubbleUser {
+  align-self: flex-end;
+  border-radius: 18px 18px 4px 18px;
+  padding: 10px 16px;
+  max-width: 75%;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.bubbleBot {
+  align-self: flex-start;
+  border-radius: 18px 18px 18px 4px;
+  padding: 10px 16px;
+  max-width: 75%;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.loadingDots {
+  display: inline-block;
+  width: 32px;
+  text-align: left;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  background: #b6c2d2;
+  border-radius: 50%;
+  animation: chatbot-bounce 1.2s infinite both;
+}
+
+@keyframes chatbot-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Glassmorphism theme for chatbot */
+.chatbot-glass {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18),
+    0 1.5px 6px 0 rgba(79, 140, 255, 0.08) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(22px) saturate(180%) !important;
+  border-bottom: 3px solid rgba(79, 140, 255, 0.1) !important;
+}
+
+.chatbot-glass-header {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-bottom: 1.5px solid rgba(79, 140, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.chatbot-glass-user {
+  background: rgba(79, 140, 255, 0.85) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.13) !important;
+}
+
+.chatbot-glass-bot {
+  background: rgba(246, 248, 251, 0.85) !important;
+  color: #22223b !important;
+  box-shadow: 0 2px 8px rgba(31, 38, 135, 0.09) !important;
+}
+
+.chatbot-glass-input {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-top: 1.5px solid rgba(79, 140, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Animated FAB with glass effect */
+.chatbot-fab-glass {
+  background: linear-gradient(135deg, #7fdfff 0%, #4f8cff 100%);
+  box-shadow: 0 4px 24px rgba(79, 140, 255, 0.18),
+    0 1.5px 6px 0 rgba(79, 140, 255, 0.08);
+  animation: chatbot-fab-pop 0.5s cubic-bezier(0.4, 2, 0.6, 1);
+  border: none;
+  outline: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.chatbot-fab-glass:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.18);
+}

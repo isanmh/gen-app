@@ -1,0 +1,28 @@
+propmt :
+please create chatbot.jsx file include all the code (react, bootstrap, css) for a fully functional chatbot application with a beautiful and modern user interface. 
+do not include a floating "chat" button. instead, chatbot window should be always visible. the chatbot should have a header with a title and a close button. the chat window should have a scrollable area for messages and an input field for user messages. the chatbot should have a light theme with soft colors and rounded corners. the chat messages should be displayed in speech bubbles with different colors for user and bot messages. the input field should have a placeholder text and a send button. the chatbot should also include a loading indicator when the bot is processing a response. 
+
+translate to indonesian :
+tolong buat file chatbot.jsx yang berisi semua kode (react, bootstrap, css) untuk aplikasi chatbot yang sepenuhnya fungsional dengan antarmuka pengguna yang indah dan modern. 
+jangan sertakan tombol "chat" mengambang. Sebaliknya, jendela chatbot harus selalu terlihat. chatbot harus memiliki header dengan judul dan tombol tutup. jendela obrolan harus memiliki area yang dapat digulir untuk pesan dan bidang input untuk pesan pengguna. chatbot harus memiliki tema terang dengan warna lembut dan sudut membulat. pesan obrolan harus ditampilkan dalam gelembung ucapan dengan warna berbeda untuk pesan pengguna dan bot. bidang input harus memiliki teks placeholder dan tombol kirim. chatbot juga harus menyertakan indikator pemuatan saat bot memproses respons.
+
+
+fetch("https://openrouter.ai/api/v1/chat/completions", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer <OPENROUTER_API_KEY>",
+    "HTTP-Referer": "<YOUR_SITE_URL>", // Optional. Site URL for rankings on openrouter.ai.
+    "X-Title": "<YOUR_SITE_NAME>", // Optional. Site title for rankings on openrouter.ai.
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    "model": "deepseek/deepseek-chat-v3-0324:free",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the meaning of life?"
+      }
+    ]
+  })
+}); 
+use axios library
